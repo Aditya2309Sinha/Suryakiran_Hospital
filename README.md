@@ -1,36 +1,39 @@
 # Suryakiran Multispecialty Hospital Website
 
-A modern, futuristic healthcare website built with Next.js, React, Tailwind CSS, and Framer Motion.
+A modern healthcare website built with Next.js, React, Tailwind CSS, and Framer Motion.
 
 ## Overview
 
-Suryakiran Multispecialty Hospital is a trusted private, multispeciality, and children's hospital located in Kandivali East, Mumbai. This website showcases the hospital's services, medical team, facilities, and patient information with a modern, glassmorphism-inspired UI design.
+Suryakiran Multispecialty Hospital is a NABH-accredited, trusted private, multispeciality, and children's hospital located in Kandivali East, Mumbai. This website showcases the hospital's services, medical team, facilities, and provides online appointment booking with multilingual support.
 
 ## Features
 
-- **Futuristic UI Design**: Clean lines, glassmorphism effects, soft hover animations
-- **Smooth Animations**: Framer Motion for fluid transitions and scroll effects
-- **Responsive Layout**: Fully responsive across all devices
-- **Modern Color Palette**: Teal/Cyan primary with Gold/Orange accents
-- **Accessibility**: Wheelchair accessible facility information
-- **Services Section**: Comprehensive healthcare services
-- **Doctors Profile**: Medical team introduction cards
-- **Patient Information**: Location, insurance, and reviews
+- **Multilingual Support**: English, Hindi (हिं), Marathi (मर) with dropdown selector
+- **NABH Accredited**: Quality healthcare certification
+- **Online Appointment Booking**: Form submission triggers n8n workflow
+- **Admin Dashboard**: Protected login for staff to manage appointments
+- **Responsive Design**: Fully responsive across all devices
+- **Smooth Animations**: Framer Motion for fluid transitions
+- **Services Section**: 16 comprehensive healthcare services
+- **Doctors Profile**: 7 specialists with OPD timing
+- **Gallery**: Hospital facility images
+- **24/7 Emergency Services**
 
 ## Tech Stack
 
 - **Framework**: Next.js 16
 - **UI Library**: React 18
-- **Styling**: Tailwind CSS
-- **Animations**: Framer Motion
+- **Styling**: Tailwind CSS 3.4
+- **Animations**: Framer Motion 11.3
 - **Icons**: Lucide React
-- **Fonts**: Inter & Montserrat
+- **Auth**: JWT with cookies
+- **Integration**: n8n workflow triggers
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm or yarn
 
 ### Installation
@@ -55,6 +58,7 @@ Create a `.env.local` file in the root directory:
 
 ```env
 # Optional: Add any environment variables if needed
+JWT_SECRET=your-secret-key
 ```
 
 ## Project Structure
@@ -62,19 +66,43 @@ Create a `.env.local` file in the root directory:
 ```
 hospital/
 ├── app/
-│   ├── globals.css       # Global styles
-│   ├── layout.tsx        # Root layout
-│   └── page.tsx          # Home page
+│   ├── api/                  # API routes
+│   │   ├── admin-logs/       # Admin activity logging
+│   │   ├── book-appointment/ # Appointment booking
+│   │   ├── login/            # Authentication
+│   │   ├── logout/           # Logout
+│   │   ├── templates/        # Email templates
+│   │   ├── trigger-workflow/ # n8n trigger
+│   │   └── verify/           # Token verification
+│   ├── admin/logs/           # Admin logs page
+│   ├── appointment/          # Booking page
+│   ├── contact/              # Contact page
+│   ├── dashboard/            # Admin dashboard (protected)
+│   ├── doctors/              # Doctors list page
+│   ├── gallery/              # Photo gallery
+│   ├── login/                # Admin login
+│   ├── services/             # Services page
+│   ├── about/                # About page
+│   ├── globals.css           # Global styles
+│   ├── layout.tsx            # Root layout
+│   └── page.tsx              # Home page
 ├── components/
-│   ├── Navbar.tsx        # Navigation component
-│   ├── Hero.tsx          # Hero section
-│   ├── About.tsx        # About section
-│   ├── Services.tsx     # Services section
-│   ├── Doctors.tsx      # Doctors section
-│   ├── PatientInfo.tsx  # Patient information
-│   └── Footer.tsx       # Footer component
+│   ├── Navbar.tsx            # Navigation with language dropdown
+│   ├── Hero.tsx              # Hero section
+│   ├── About.tsx             # About section
+│   ├── Services.tsx          # Services grid
+│   ├── Doctors.tsx           # Doctors cards
+│   ├── Counter.tsx           # Animated counter
+│   └── Footer.tsx            # Footer with contact info
+├── context/
+│   └── LanguageContext.tsx   # i18n context
+├── lib/
+│   ├── translations.ts       # All translations (en/hi/mr)
+│   ├── auth.ts              # Auth utilities
+│   └── login-logger.ts      # Login activity logging
 ├── public/
-│   └── images/           # Hospital images
+│   ├── images/               # Hospital images, logos
+│   └── gallery/              # Facility photos
 ├── package.json
 ├── tailwind.config.ts
 ├── tsconfig.json
@@ -83,60 +111,69 @@ hospital/
 
 ## Hospital Information
 
-**Name**: Suryakiran Multispecialty Hospital
+**Name**: Suryakiran Multispecialty Hospital  
+**Parent Company**: Billore Hospital Private Limited  
+**Address**: 1st Floor, Near Kranti Nagar Auto Stand, Akruli Road, Kandivali East, Mumbai-400101, Maharashtra  
+**Experience**: 13+ Years in Healthcare  
+**Rating**: 4.2 stars (150+ reviews)  
+**Accreditation**: NABH  
 
-**Address**: 1st Floor, Near Kranti Nagar Auto Stand, Akruli Road, Kandivali East, Mumbai-400101, Maharashtra
+### Contact Numbers
 
-**Experience**: 13 Years in Healthcare
-
-**Rating**: 4.2 stars (150+ reviews)
-
-**Insurance Accepted**: Future Generali India Insurance
+- +91 22 4963 4780
+- +91 8433 534780
+- +91 8879 634780
 
 ## Services
 
-- General Medicine
-- Pediatrics
-- General Surgery
-- Viral Fever Treatment
-- Diagnostic Services
-- Child Healthcare
-- 24/7 Emergency Care
+1. ICU (Intensive Care Unit)
+2. ICCU (Cardiac Care Unit)
+3. Surgical
+4. General Medicine
+5. Gynaecology
+6. Maternity
+7. Accident & Trauma
+8. Urology
+9. Laparoscopy
+10. Endoscopy
+11. Cancer Care
+12. Pediatrics
+13. Skin Care
+14. ENT
+15. Chest & TB
 
 ## Medical Team
 
-- Dr. Mahima Bilore - General Surgeon
-- Dr. Shivam - General Physician
-- Dr. Abhishek - Pediatrician
-- Dr. Sangeeta Chatterjee - General Medicine
-- Dr. Nilesh Ghorpade - General Surgeon
+1. **Dr. Mahima (Mishra) Billore** - General Surgeon (GI, Breast & Laparoscopic) - 12:00 PM - 2:00 PM
+2. **Dr. Abhishiek S. Jaipuria** - Orthopaedician - 2:00 PM - 4:00 PM (No OPD Thursday & Sunday)
+3. **Dr. Nilesh Ghorpade** - Physician & Cardiologist - 8:30 PM - 10:30 PM
+4. **Dr. Sangita Chatterjee** - Obstetrician & Gynaecologist - 10:30 AM - 11:30 AM
+5. **Dr. Sushila Bawa** - Obstetrician & Gynaecologist - 4:00 PM - 5:00 PM
+6. **Dr. Hemal Mistry** - Child Specialist - 6:00 PM - 7:00 PM
+7. **Dr. Nikunj Bavishi** - Physician - 6:00 PM - 8:00 PM
 
-## Accessibility
+## API Integration
 
-- Wheelchair Accessible Entrance
-- Wheelchair Accessible Exit
-- Wheelchair Accessible Parking
+The appointment form triggers an n8n workflow for:
+- Email notifications to hospital staff
+- SMS/WhatsApp confirmation to patients
+- Calendar scheduling
 
-## Design Guidelines
+## Color Palette
 
-### Color Palette
+- **Primary**: Maroon (#991b1b) / Brown (#78350f)
+- **Accent**: Orange (#f97316) / Red (#dc2626)
+- **Heal**: Teal (#0d9488)
+- **Background**: White / Orange-50
 
-- **Primary**: Teal (#0d9488) / Cyan (#06b6d4)
-- **Accent**: Gold (#f59e0b) / Orange (#f97316)
-- **Background**: White (#ffffff) / Silver (#f5f5f5)
-- **Text**: Slate (#1e293b)
-
-### Typography
-
-- **Headings**: Montserrat
-- **Body**: Inter
-
-### UI Elements
+## Design Features
 
 - Glassmorphism cards with backdrop blur
-- Gradient backgrounds
+- Gradient backgrounds with orange/red theme
 - Smooth hover animations
 - Responsive grid layouts
+- Animated counters
+- Mobile-friendly navigation with hamburger menu
 
 ## License
 

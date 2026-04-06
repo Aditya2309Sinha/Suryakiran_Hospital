@@ -1,33 +1,48 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Star, Shield, Heart, Clock } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import Counter from "./Counter";
+import { useLanguage } from "@/context/LanguageContext";
 
 const features = [
   {
     icon: Shield,
-    title: "13 Years of Trust",
-    desc: "Serving the community with unwavering commitment",
+    titleKey: "yearsTrust",
+    descKey: "heroDesc1",
   },
   {
     icon: Heart,
-    title: "Expert Care",
-    desc: "Specialized treatment for all age groups",
+    titleKey: "expertCare",
+    descKey: "heroDesc2",
   },
   {
     icon: Clock,
-    title: "24/7 Availability",
-    desc: "Round-the-clock healthcare services",
+    titleKey: "availability",
+    descKey: "heroDesc3",
   },
   {
     icon: Star,
-    title: "4.2 Rating",
-    desc: "Based on 150+ patient reviews",
+    titleKey: "rating",
+    descKey: "heroDesc4",
   },
 ];
 
 export default function Hero() {
+  const { t, language } = useLanguage();
+  const images = ["/images/logo.png", "/images/logo.png"];
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Elements - Warm gradient with subtle green accents */}
@@ -62,54 +77,36 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-50 border border-orange-100"
+              className="inline-flex flex-col items-start gap-2"
             >
-              <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
-              <span className="text-sm font-medium text-orange-700">Trusted Healthcare Since 2013</span>
-              <Heart className="w-3 h-3 text-red-500 fill-current ml-1" />
+              <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-orange-600">
+                {t('heroNewLine' as any)}
+              </span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-50 border border-orange-100">
+                <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
+                <span className="text-sm font-medium text-orange-700">{t('heroTitle')}</span>
+                <Heart className="w-3 h-3 text-red-500 fill-current ml-1" />
+              </div>
             </motion.div>
 
             {/* Heading */}
             <div className="space-y-4">
-              <h1 className="font-montserrat text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-                <span className="text-trust-maroon">Caring for</span>
+              <h1 className="font-montserrat text-xs sm:text-sm lg:text-base font-bold leading-tight">
+                <span className="text-trust-maroon">{t('heroTitle')}</span>
                 <br />
-                <span className="gradient-text">Every Generation</span>
+                <span className="gradient-text">{t('heroSubtitle')}</span>
               </h1>
-              <p className="text-lg text-trust-brown/80 max-w-lg leading-relaxed">
-                Suryakiran Multispecialty Hospital - Your trusted destination for comprehensive healthcare. 
-                Where expertise meets empathy, and every patient is family.
-              </p>
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4">
-              <Link href="#contact" className="btn-primary flex items-center gap-2">
-                Book Appointment
+              <Link href="/appointment" className="btn-primary flex items-center gap-2">
+                {t('bookAppointment')}
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <Link href="#services" className="px-6 py-3 bg-white text-trust-brown font-semibold rounded-xl border-2 border-orange-200 hover:border-orange-500 hover:text-orange-600 transition-all duration-300">
-                Our Services
+                {t('heroServices')}
               </Link>
-            </div>
-
-            {/* Trust badges */}
-            <div className="flex flex-wrap items-center gap-6 pt-4">
-              <div className="flex items-center gap-2">
-                <div className="flex -space-x-2">
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-orange-200 to-red-200 border-2 border-white" />
-                  ))}
-                </div>
-                <span className="text-sm text-trust-brown font-medium">150+ Reviews</span>
-              </div>
-              <div className="h-10 w-px bg-orange-300" />
-              <div className="flex items-center gap-1">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <Star key={i} className={`w-5 h-5 ${i <= 4 ? 'text-orange-400 fill-orange-400' : 'text-orange-200'}`} />
-                ))}
-                <span className="ml-2 text-sm font-medium text-trust-maroon">4.2 Rating</span>
-              </div>
             </div>
           </motion.div>
 
@@ -122,16 +119,25 @@ export default function Hero() {
           >
             {/* Glassmorphism card with warm gradient */}
             <div className="relative bg-white/60 backdrop-blur-xl rounded-3xl border border-white/50 shadow-2xl shadow-orange-500/10 overflow-hidden">
-              {/* Image placeholder */}
-              <div className="aspect-[4/3] relative bg-gradient-to-br from-orange-100 to-red-100">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center space-y-4">
-                    <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center shadow-xl shadow-orange-500/30">
-                      <Heart className="w-12 h-12 text-white fill-current" />
-                    </div>
-                    <p className="text-orange-700 font-semibold">Suryakiran Hospital</p>
-                  </div>
-                </div>
+              {/* Image carousel with fade animation */}
+              <div className="aspect-[4/3] relative bg-gradient-to-br from-orange-100 to-red-100 overflow-hidden">
+                {images.map((src, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: index === currentImage ? 1 : 0 }}
+                    transition={{ duration: 1 }}
+                    className="absolute inset-0"
+                  >
+                    <Image
+                      src={src}
+                      alt="Suryakiran Hospital"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover"
+                    />
+                  </motion.div>
+                ))}
                 
                 {/* Floating elements */}
                 <motion.div
@@ -142,28 +148,22 @@ export default function Hero() {
                   <span className="text-orange-600 font-semibold text-sm">24/7 Emergency</span>
                 </motion.div>
                 
-                <motion.div
-                  animate={{ y: [0, 10, 0] }}
-                  transition={{ duration: 5, repeat: Infinity }}
-                  className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg"
-                >
-                  <span className="text-heal-600 font-semibold text-sm">Pediatrics Care</span>
-                </motion.div>
+                  
               </div>
 
               {/* Stats */}
               <div className="grid grid-cols-3 divide-x divide-orange-100 border-t border-orange-100">
                 <div className="p-4 text-center">
-                  <p className="text-2xl font-bold text-orange-600">13+</p>
-                  <p className="text-xs text-trust-brown/60">Years</p>
+                  <Counter endValue={13} suffix="+" color="text-orange-600" className="text-2xl font-bold" />
+                  <p className="text-xs text-trust-brown/60">{t('years')}</p>
                 </div>
                 <div className="p-4 text-center">
-                  <p className="text-2xl font-bold text-orange-600">5+</p>
-                  <p className="text-xs text-trust-brown/60">Doctors</p>
+                  <Counter endValue={5} suffix="+" color="text-orange-600" className="text-2xl font-bold" />
+                  <p className="text-xs text-trust-brown/60">{t('doctorsLabel')}</p>
                 </div>
                 <div className="p-4 text-center">
-                  <p className="text-2xl font-bold text-orange-600">150+</p>
-                  <p className="text-xs text-trust-brown/60">Reviews</p>
+                  <Counter endValue={150} suffix="+" color="text-orange-600" className="text-2xl font-bold" />
+                  <p className="text-xs text-trust-brown/60">{t('reviews')}</p>
                 </div>
               </div>
             </div>
@@ -183,15 +183,15 @@ export default function Hero() {
         >
           {features.map((feature, index) => (
             <div
-              key={feature.title}
+              key={feature.titleKey}
               className="glass-card-hover p-6 text-center"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center shadow-lg shadow-orange-500/20">
                 <feature.icon className="w-6 h-6 text-white" />
               </div>
-              <h3 className="font-semibold text-trust-maroon mb-1">{feature.title}</h3>
-              <p className="text-sm text-trust-brown/60">{feature.desc}</p>
+              <h3 className="font-semibold text-trust-maroon mb-1">{t(feature.titleKey)}</h3>
+              <p className="text-sm text-trust-brown/60">{t(feature.descKey)}</p>
             </div>
           ))}
         </motion.div>

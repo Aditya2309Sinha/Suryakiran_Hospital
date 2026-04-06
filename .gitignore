@@ -29,6 +29,10 @@ yarn-error.log*
 .env*.local
 .env
 
+# Logs
+logs/
+*.log
+
 # Vercel
 .vercel
 
@@ -41,6 +45,19 @@ next-env.d.ts
 .vscode/
 *.swp
 *.swo
+.vs/
 
 # OS
 Thumbs.db
+Thumbs.db:encryptable
+desktop.ini
+
+# Build output
+dist/
+build/
+*.tsbuildinfo
+
+# Misc
+*.bak
+*.tmp
+*.temp

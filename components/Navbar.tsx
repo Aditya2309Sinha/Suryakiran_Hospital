@@ -3,8 +3,10 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, Phone, MapPin, Heart } from "lucide-react";
+import { Menu, X, Phone, MapPin, Heart, Camera, Globe, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
+import { Language } from "@/lib/translations";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -14,9 +16,17 @@ const navLinks = [
   { name: "Contact", href: "/#contact" },
 ];
 
+const languageLabels: Record<Language, string> = {
+  en: "EN",
+  hi: "हिं",
+  mr: "मर"
+};
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [languageDropdown, setLanguageDropdown] = useState(false);
+  const { t, language, setLanguage } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,6 +35,34 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (languageDropdown && !(event.target as HTMLElement).closest('.language-dropdown')) {
+        setLanguageDropdown(false);
+      }
+    };
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [languageDropdown]);
+
+  const cycleLanguage = () => {
+    const langs: Language[] = ['en', 'hi', 'mr'];
+    const currentIndex = langs.indexOf(language);
+    const nextIndex = (currentIndex + 1) % langs.length;
+    setLanguage(langs[nextIndex]);
+  };
+
+  const getNavName = (key: string): string => {
+    const keyMap: Record<string, string> = {
+      'Home': 'home',
+      'About': 'about',
+      'Services': 'services',
+      'Doctors': 'doctors',
+      'Contact': 'contact'
+    };
+    return t(keyMap[key] as any);
+  };
 
   return (
     <motion.nav
@@ -39,30 +77,6 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Logo with Image */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative">
-              <div className="w-12 h-12 rounded-xl overflow-hidden border-2 border-orange-500 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <Image
-                  src="/images/logoo.png"
-                  alt="Suryakiran Logo"
-                  width={48}
-                  height={48}
-                  className="object-contain w-full h-full"
-                />
-              </div>
-              <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full animate-pulse flex items-center justify-center">
-                <Heart className="w-2 h-2 text-white fill-current" />
-              </div>
-            </div>
-            <div className="hidden sm:block">
-              <span className="font-montserrat font-bold text-xl text-trust-maroon">
-                Suryakiran
-              </span>
-              <p className="text-xs text-orange-600 -mt-1">Multispecialty Hospital</p>
-            </div>
-          </Link>
-
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
@@ -71,28 +85,70 @@ export default function Navbar() {
                 href={link.href}
                 className="relative text-trust-brown font-medium hover:text-orange-600 transition-colors duration-300 group"
               >
-                {link.name}
+                {getNavName(link.name)}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-orange-500 to-red-500 group-hover:w-full transition-all duration-300" />
               </Link>
             ))}
           </div>
 
-          {/* Contact Button & Mobile Menu */}
-          <div className="flex items-center gap-4">
+          {/* Contact Button & Language Dropdown & Mobile Menu */}
+          <div className="flex items-center gap-2">
+            {/* Language Dropdown */}
+            <div className="relative language-dropdown">
+              <button
+                onClick={() => setLanguageDropdown(!languageDropdown)}
+                className="p-2 rounded-full hover:bg-orange-50 transition-colors duration-300 flex items-center gap-1"
+                title="Change Language"
+              >
+                <Globe className="w-5 h-5 text-trust-brown" />
+                <ChevronDown className={`w-3 h-3 text-trust-brown transition-transform ${languageDropdown ? 'rotate-180' : ''}`} />
+              </button>
+              {languageDropdown && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="absolute right-0 mt-2 w-32 bg-white rounded-xl shadow-lg border border-orange-100 py-2 z-50"
+                >
+                  {(['en', 'hi', 'mr'] as Language[]).map((lang) => (
+                    <button
+                      key={lang}
+                      onClick={() => {
+                        setLanguage(lang);
+                        setLanguageDropdown(false);
+                      }}
+                      className={`w-full text-left px-4 py-2 hover:bg-orange-50 transition-colors ${
+                        language === lang ? 'text-orange-600 font-semibold' : 'text-trust-brown'
+                      }`}
+                    >
+                      {languageLabels[lang]}
+                    </button>
+                  ))}
+                </motion.div>
+              )}
+            </div>
+
+            <Link
+              href="/gallery"
+              className="p-2 rounded-full hover:bg-orange-50 transition-colors duration-300"
+              title="Gallery"
+            >
+              <Camera className="w-5 h-5 text-trust-brown" />
+            </Link>
+
             <Link
               href="/login"
               className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-red-600 to-orange-500 text-white font-medium hover:from-red-500 hover:to-orange-400 transition-all duration-300"
             >
-              Login
+              {t('login')}
             </Link>
 
-            <a
-              href="tel:+912249634780"
+            <Link
+              href="/appointment"
               className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full bg-heal-50 text-heal-600 font-medium hover:bg-heal-100 transition-colors duration-300"
             >
               <Phone className="w-4 h-4" />
-              <span>Book Appointment</span>
-            </a>
+              <span>{t('bookAppointment')}</span>
+            </Link>
 
             {/* Mobile Menu Button */}
             <button
@@ -126,15 +182,23 @@ export default function Navbar() {
                   onClick={() => setIsOpen(false)}
                   className="block px-4 py-3 rounded-xl text-trust-brown font-medium hover:bg-orange-50 hover:text-orange-600 transition-all duration-300"
                 >
-                  {link.name}
+                  {getNavName(link.name)}
                 </Link>
               ))}
+              <Link
+                href="/gallery"
+                onClick={() => setIsOpen(false)}
+                className="block px-4 py-3 rounded-xl text-trust-brown font-medium hover:bg-orange-50 hover:text-orange-600 transition-all duration-300 flex items-center gap-2"
+              >
+                <Camera className="w-5 h-5" />
+                {t('gallery')}
+              </Link>
               <Link
                 href="/login"
                 onClick={() => setIsOpen(false)}
                 className="block px-4 py-3 rounded-xl text-center bg-gradient-to-r from-red-600 to-orange-500 text-white font-medium"
               >
-                Login
+                {t('login')}
               </Link>
               <div className="pt-4 border-t border-orange-100">
                 <div className="flex items-center gap-2 px-4 py-3 rounded-xl bg-orange-50">

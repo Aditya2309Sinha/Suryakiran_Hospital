@@ -1,26 +1,29 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { MapPin, Phone, Mail, Clock, Heart } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 const quickLinks = [
-  { name: "Home", href: "/" },
-  { name: "About Us", href: "/#about" },
-  { name: "Services", href: "/#services" },
-  { name: "Our Doctors", href: "/#doctors" },
-  { name: "Contact", href: "/#contact" },
+  { nameKey: "home", href: "/" },
+  { nameKey: "about", href: "/about" },
+  { nameKey: "services", href: "/services" },
+  { nameKey: "doctors", href: "/doctors" },
+  { nameKey: "contact", href: "/contact" },
 ];
 
 const services = [
-  "General Medicine",
-  "Paediatrics",
-  "General Surgery",
-  "Viral Fever Treatment",
-  "Child Healthcare",
-  "Emergency Care",
+  { nameKey: "general" },
+  { nameKey: "pediatrics" },
+  { nameKey: "surgical" },
+  { nameKey: "icuService" },
+  { nameKey: "childrenWard" },
+  { nameKey: "emergencyServices" },
 ];
 
 export default function Footer() {
+  const { t } = useLanguage();
   return (
     <footer className="bg-trust-maroon text-white/80" id="contact">
       <div className="relative">
@@ -32,35 +35,37 @@ export default function Footer() {
             {/* Hospital Info */}
             <div className="space-y-6">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">S</span>
-                </div>
-                <div>
-                  <span className="font-montserrat font-bold text-xl text-white">
-                    Suryakiran
-                  </span>
-                  <p className="text-xs text-orange-400">Multispecialty Hospital</p>
+                <div className="relative w-40 h-16">
+                  <Image
+                    src="/images/BHPL.jpg"
+                    alt="Billore Hospital Private Limited"
+                    fill
+                    className="object-contain"
+                  />
                 </div>
               </div>
+              <p className="font-montserrat font-bold text-xl text-white">
+                {t('socialInitiative')}
+              </p>
               <p className="text-white/70 leading-relaxed">
-                A trusted private, multispeciality, and children&apos;s hospital with 13 years of experience in providing exceptional healthcare to the community.
+                {t('footerAboutDesc')}
               </p>
             </div>
 
             {/* Quick Links */}
             <div>
               <h3 className="font-montserrat font-semibold text-lg text-white mb-6">
-                Quick Links
+                {t('quickLinks')}
               </h3>
               <ul className="space-y-3">
                 {quickLinks.map((link) => (
-                  <li key={link.name}>
+                  <li key={link.nameKey}>
                     <Link 
                       href={link.href}
                       className="hover:text-heal-400 transition-colors duration-300 flex items-center gap-2"
                     >
                       <span className="w-1.5 h-1.5 rounded-full bg-heal-500" />
-                      {link.name}
+                      {t(link.nameKey as any)}
                     </Link>
                   </li>
                 ))}
@@ -70,14 +75,14 @@ export default function Footer() {
             {/* Services */}
             <div>
               <h3 className="font-montserrat font-semibold text-lg text-white mb-6">
-                Our Services
+                {t('footerServices')}
               </h3>
               <ul className="space-y-3">
                 {services.map((service) => (
-                  <li key={service}>
+                  <li key={service.nameKey}>
                     <span className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
-                      {service}
+                      {t(service.nameKey as any)}
                     </span>
                   </li>
                 ))}
@@ -87,7 +92,7 @@ export default function Footer() {
             {/* Contact Info */}
             <div>
               <h3 className="font-montserrat font-semibold text-lg text-white mb-6">
-                Contact Us
+                {t('contactUs')}
               </h3>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
@@ -116,19 +121,15 @@ export default function Footer() {
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone className="w-5 h-5 text-heal-500" />
-                  <a href="tel:+912249634780" className="hover:text-heal-400 transition-colors">
-                    +91 2249634780
-                  </a>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Mail className="w-5 h-5 text-heal-500" />
-                  <a href="mailto:info@suryakiranhospital.com" className="hover:text-heal-400 transition-colors">
-                    info@suryakiranhospital.com
-                  </a>
+                  <div className="flex flex-col">
+                    <a href="tel:+912249634780" className="hover:text-heal-400 transition-colors">+91 22 4963 4780</a>
+                    <a href="tel:+918433534780" className="hover:text-heal-400 transition-colors">+91 8433 534780</a>
+                    <a href="tel:+918879634780" className="hover:text-heal-400 transition-colors">+91 8879 634780</a>
+                  </div>
                 </div>
                 <div className="flex items-center gap-3">
                   <Clock className="w-5 h-5 text-orange-500" />
-                  <span className="text-white/70 text-sm">Open 24/7</span>
+                  <span className="text-white/70 text-sm">{t('open247')}</span>
                 </div>
               </div>
             </div>
@@ -138,12 +139,12 @@ export default function Footer() {
           <div className="mt-12 pt-8 border-t border-white/10">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-white/50 text-sm">
-                &copy; 2026 Suryakiran Multispecialty Hospital. All rights reserved.
+                {t('copyright')}
               </p>
               <div className="flex items-center gap-2 text-white/50 text-sm">
-                <span>Made with</span>
+                <span>{t('madeWith').split(' ')[0]}</span>
                 <Heart className="w-4 h-4 text-red-500 fill-current animate-heartbeat" />
-                <span>for a healthier tomorrow</span>
+                <span>{t('madeWith').split(' ').slice(1).join(' ')}</span>
               </div>
             </div>
           </div>
