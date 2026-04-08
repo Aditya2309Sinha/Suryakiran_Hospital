@@ -117,7 +117,7 @@ export const translations = {
     chestTB: "Chest TB",
 
     // Social Initiative
-    socialInitiative: "A social initiative of Billore Hospital Private Limited",
+    socialInitiative: "A social initiative of Billore Hospital Pvt. Ltd.",
 
     // Doctor Names
     drMahima: "Dr. Mahima (Mishra) Billore",

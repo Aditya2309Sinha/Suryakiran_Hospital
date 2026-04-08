@@ -32,18 +32,29 @@ export default function AppointmentPage() {
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    let value = e.target.value;
+    if (e.target.name === 'phone') {
+      value = value.replace(/\D/g, '').substring(0, 10);
+    }
+    setFormData({ ...formData, [e.target.name]: value });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    const phoneDigits = formData.phone.replace(/\D/g, '');
+    if (phoneDigits.length !== 10) {
+      alert('Please enter a valid 10-digit mobile number');
+      return;
+    }
+    
     setIsSubmitting(true);
 
     try {
       const response = await fetch('/api/book-appointment', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, phone: '+91 ' + formData.phone }),
       });
 
       const data = await response.json();
@@ -166,14 +177,21 @@ export default function AppointmentPage() {
               <div className="form-row">
                 <div className="form-group">
                   <label>{t('phoneNumber')} *</label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="+91 98765 43210"
-                    required
-                  />
+                  <div className="flex">
+                    <span className="inline-flex items-center px-3 rounded-l-lg bg-gray-100 text-trust-brown text-sm">
+                      +91
+                    </span>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="9876543210"
+                      className="rounded-l-none"
+                      required
+                    />
+                  </div>
+                  <span className="text-xs text-trust-brown/60">Enter 10-digit mobile number</span>
                 </div>
                 <div className="form-group">
                   <label>{t('emailAddress')}</label>
