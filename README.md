@@ -113,7 +113,6 @@ hospital/
 **Parent Company**: Billore Hospital Private Limited  
 **Address**: 1st Floor, Near Kranti Nagar Auto Stand, Akruli Road, Kandivali East, Mumbai-400101, Maharashtra  
 **Experience**: 13+ Years in Healthcare  
-** **: 4.2 stars (150+ reviews)  
 **Accreditation**: NABH  
 
 ### Contact Numbers
@@ -149,6 +148,7 @@ hospital/
 5. **Dr. Sushila Bawa** - Obstetrician & Gynaecologist - 4:00 PM - 5:00 PM
 6. **Dr. Hemal Mistry** - Child Specialist - 6:00 PM - 7:00 PM
 7. **Dr. Nikunj Bavishi** - Physician - 6:00 PM - 8:00 PM
+8. **Hospital 24*7 RMO** - Resident Medical Officer - Round the Clock
 
 ## API Integration
 

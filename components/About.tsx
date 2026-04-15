@@ -39,7 +39,6 @@ export default function About() {
             <div className="grid sm:grid-cols-2 gap-4">
               {[
                 t('cleanEnvironment'),
-                t('childrenWard'),
                 t('emergencyServices'),
               ].map((item) => (
                 <div key={item} className="flex items-center gap-3">
