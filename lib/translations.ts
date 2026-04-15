@@ -90,7 +90,7 @@ export const translations = {
     // Gallery
     ourFacilities: "Our Facilities",
     galleryTitle: "Photo Gallery",
-    gallerySubtitle: "Explore our state-of-the-art facilities and hospital infrastructure.",
+    gallerySubtitle: "Explore our facilities and hospital infrastructure.",
     frontView: "Front View",
     entrance: "Entrance",
     reception: "Reception",
