@@ -7,7 +7,7 @@ import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 
 const galleryImages = [
-  { src: "/gallery/Front.jpg", titleKey: "frontView" },
+  
   { src: "/gallery/Entrance.jpg", titleKey: "entrance" },
   { src: "/gallery/Reception.jpg", titleKey: "reception" },
   { src: "/gallery/ICU.jpg", titleKey: "icuLabel" },
