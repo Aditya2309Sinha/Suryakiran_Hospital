@@ -53,7 +53,7 @@ export default function About() {
               {[
                 { value: 13, suffix: "+", icon: Clock, labelKey: "yearsExperience" },
                 { value: 50, suffix: "K+", icon: Users, labelKey: "patientsServed" },
-                { value: 5, suffix: "+", icon: Award, labelKey: "expertDoctorsLabel" },
+                { value: 10, suffix: "+", icon: Award, labelKey: "expertDoctorsLabel" },
               ].map((stat, index) => (
                 <motion.div
                   key={stat.labelKey}
