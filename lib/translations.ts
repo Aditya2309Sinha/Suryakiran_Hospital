@@ -56,7 +56,7 @@ export const translations = {
     emailLabel: "Email",
     hours: "Hours",
     open247: "Open 24/7",
-    copyright: "2026 Suryakiran Multispecialty Hospital. All rights reserved.",
+    copyright: "© 2026 Suryakiran Multispecialty Hospital. All rights reserved.",
     madeWith: "Made with for a healthier tomorrow",
     footerAboutDesc: "A trusted private, multispeciality, and children's hospital with 13 years of experience in providing exceptional healthcare to the community.",
 
@@ -212,7 +212,7 @@ export const translations = {
     emailLabel: "ईमेल",
     hours: "समय",
     open247: "24/7 खुला",
-    copyright: "2026 सूर्यकिरण मल्टीस्पेसियल हॉस्पिटल। सर्वाधिकार सुरक्षित।",
+    copyright: "© 2026 सूर्यकिरण मल्टीस्पेसियल हॉस्पिटल। सर्वाधिकार सुरक्षित।",
     madeWith: "स्वस्थ कल के लिए बनाया गया",
     footerAboutDesc: "13 वर्षों के अनुभव के साथ समुदाय को उत्कृष्ट स्वास्थ्य सेवा प्रदान करने वाला एक विश्वसनीय निजी, मल्टीस्पेशियलिटी और बच्चों का अस्पताल।",
 
@@ -368,7 +368,7 @@ export const translations = {
     emailLabel: "ईमेल",
     hours: "वेळ",
     open247: "24/7 खुले",
-    copyright: "2026 सूर्यकिरण मल्टीस्पेशालिटी हॉस्पिटल. सर्व हक्क राखून ठेवले आहेत.",
+    copyright: "© 2026 सूर्यकिरण मल्टीस्पेशालिटी हॉस्पिटल. सर्व हक्क राखून ठेवले आहेत.",
     madeWith: "स्वस्थ उद्याच्यासाठी बनवले",
     footerAboutDesc: "13 वर्षांच्या अनुभवासह समुदायाला उत्कृष्ट आरोग्य सेवा प्रदाण करणारे एक विश्वसनीय खाजगी, मल्टीस्पेशालिटी आणि मुलांचे रुग्णालय.",
 
