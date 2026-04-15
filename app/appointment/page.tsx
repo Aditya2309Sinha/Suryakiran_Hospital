@@ -15,6 +15,7 @@ const doctors = [
   { nameKey: "drAbhishiek", specialtyKey: "drAbhishiekSpecialty", timingKey: "drAbhishiekTiming" },
   { nameKey: "drSushila", specialtyKey: "drSushilaSpecialty", timingKey: "drSushilaTiming" },
   { nameKey: "drNikunj", specialtyKey: "drNikunjSpecialty", timingKey: "drNikunjTiming" },
+  { name: "Hospital 24*7 RMO", specialty: "Resident Medical Officer", timing: "Round the Clock" },
 ];
 
 export default function AppointmentPage() {
@@ -216,9 +217,9 @@ export default function AppointmentPage() {
                     required
                   >
                     <option value="">{t('selectDoctor')}</option>
-                    {doctors.map((doc) => (
-                      <option key={doc.nameKey} value={t(doc.nameKey as any)}>
-                        {t(doc.nameKey as any)} - {t(doc.specialtyKey as any)} ({t(doc.timingKey as any)})
+                    {doctors.map((doc, index) => (
+                      <option key={doc.nameKey || `rmo-${index}`} value={doc.name ? doc.name : t(doc.nameKey as any)}>
+                        {doc.name ? `${doc.name} - ${doc.specialty} (${doc.timing})` : `${t(doc.nameKey as any)} - ${t(doc.specialtyKey as any)} (${t(doc.timingKey as any)})`}
                       </option>
                     ))}
                   </select>
@@ -230,6 +231,11 @@ export default function AppointmentPage() {
                     name="date"
                     value={formData.date}
                     onChange={handleChange}
+                    min={(() => {
+                      const tomorrow = new Date();
+                      tomorrow.setDate(tomorrow.getDate() + 1);
+                      return tomorrow.toISOString().split('T')[0];
+                    })()}
                     required
                   />
                 </div>

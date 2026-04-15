@@ -113,7 +113,7 @@ hospital/
 **Parent Company**: Billore Hospital Private Limited  
 **Address**: 1st Floor, Near Kranti Nagar Auto Stand, Akruli Road, Kandivali East, Mumbai-400101, Maharashtra  
 **Experience**: 13+ Years in Healthcare  
-**Rating**: 4.2 stars (150+ reviews)  
+** **: 4.2 stars (150+ reviews)  
 **Accreditation**: NABH  
 
 ### Contact Numbers

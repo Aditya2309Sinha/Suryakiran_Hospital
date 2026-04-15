@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award, Users, Clock, HeartHandshake, Heart } from "lucide-react";
+import { Award, Users, Clock } from "lucide-react";
 import Image from "next/image";
 import Counter from "./Counter";
 import { useLanguage } from "@/context/LanguageContext";
@@ -55,7 +55,6 @@ export default function About() {
                 { value: 13, suffix: "+", icon: Clock, labelKey: "yearsExperience" },
                 { value: 50, suffix: "K+", icon: Users, labelKey: "patientsServed" },
                 { value: 5, suffix: "+", icon: Award, labelKey: "expertDoctorsLabel" },
-                { value: 4.2, suffix: "", decimals: 1, icon: HeartHandshake, labelKey: "starRating" },
               ].map((stat, index) => (
                 <motion.div
                   key={stat.labelKey}
@@ -69,7 +68,6 @@ export default function About() {
                   <Counter
                     endValue={stat.value}
                     suffix={stat.suffix}
-                    decimals={stat.decimals}
                     color="text-trust-maroon"
                     className="text-2xl font-bold"
                   />

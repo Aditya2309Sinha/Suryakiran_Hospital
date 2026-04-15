@@ -14,12 +14,11 @@ const quickLinks = [
 ];
 
 const services = [
-  { nameKey: "general" },
-  { nameKey: "pediatrics" },
-  { nameKey: "surgical" },
-  { nameKey: "icuService" },
-  { nameKey: "childrenWard" },
-  { nameKey: "emergencyServices" },
+  { nameKey: "General" },
+  { nameKey: "Pediatrics" },
+  { nameKey: "Surgical" },
+  { nameKey: "ICU Service" },
+  { nameKey: "Emergency Services" },
 ];
 
 export default function Footer() {

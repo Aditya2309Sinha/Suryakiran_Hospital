@@ -102,14 +102,14 @@ export default function Doctors() {
               className="glass-card-hover group"
             >
               {/* Image with warm gradient */}
-              <div className="relative aspect-square rounded-t-2xl bg-gradient-to-br from-orange-100 to-red-100 overflow-hidden">
+              <div className={`relative aspect-square rounded-t-2xl bg-gradient-to-br from-orange-100 to-red-100 overflow-hidden ${doctor.nameKey === 'drAbhishiek' ? 'pt-3' : ''}`}>
                 {doctor.image ? (
                   <Image
                     src={doctor.image}
                     alt={t(doctor.nameKey as any)}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 20vw"
-                    className="object-cover"
+                    className={`object-cover ${doctor.nameKey === 'drAbhishiek' ? 'object-top' : ''}`}
                   />
                 ) : (
                   <div className="absolute inset-0 flex items-center justify-center">

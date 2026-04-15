@@ -9,26 +9,9 @@ import Counter from "./Counter";
 import { useLanguage } from "@/context/LanguageContext";
 
 const features = [
-  {
-    icon: Shield,
-    titleKey: "yearsTrust",
-    descKey: "heroDesc1",
-  },
-  {
-    icon: Heart,
-    titleKey: "expertCare",
-    descKey: "heroDesc2",
-  },
-  {
-    icon: Clock,
-    titleKey: "availability",
-    descKey: "heroDesc3",
-  },
-  {
-    icon: Star,
-    titleKey: "rating",
-    descKey: "heroDesc4",
-  },
+  { icon: Shield,   titleKey: "yearsTrust",    descKey: "heroDesc1" },
+  { icon: Heart,     titleKey: "expertCare",    descKey: "heroDesc2" },
+  { icon: Clock,     titleKey: "availability",  descKey: "heroDesc3" },
 ];
 
 export default function Hero() {
@@ -181,8 +164,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16"
+          className="flex justify-center"
         >
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-16 max-w-4xl">
           {features.map((feature, index) => (
             <div
               key={feature.titleKey}
@@ -196,6 +180,7 @@ export default function Hero() {
               <p className="text-sm text-trust-brown/60">{t(feature.descKey)}</p>
             </div>
           ))}
+          </div>
         </motion.div>
       </div>
 

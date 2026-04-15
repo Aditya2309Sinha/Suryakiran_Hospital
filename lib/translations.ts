@@ -18,14 +18,12 @@ export const translations = {
     yearsTrust: "Years of Trust",
     expertCare: "Expert Care",
     availability: "24/7 Availability",
-    rating: "Rating",
     years: "Years",
     doctorsLabel: "Doctors",
     reviews: "Reviews",
     heroDesc1: "Serving the community with unwavering commitment",
     heroDesc2: "Specialized treatment for all age groups",
     heroDesc3: "Round-the-clock healthcare services",
-    heroDesc4: "Based on 150+ patient reviews",
     heroServices: "Our Services",
 
     // About Section
@@ -39,7 +37,7 @@ export const translations = {
     yearsExperience: "Years Experience",
     patientsServed: "Patients Served",
     expertDoctorsLabel: "Expert Doctors",
-    starRating: "Star Rating",
+    star : "Star  ",
 
     // Services
     servicesTitle: "Comprehensive Healthcare Services",
@@ -144,7 +142,7 @@ export const translations = {
     drSushilaTiming: "4:00 pm to 5:00 pm",
 
     drHemal: "Dr. Hemal Mistry",
-    drHemalSpecialty: "Child Specialist",
+    drHemalSpecialty: "Pediatrician",
     drHemalDesc: "Child Specialist",
     drHemalTiming: "6:00 pm to 7:00 pm",
 
@@ -152,6 +150,10 @@ export const translations = {
     drNikunjSpecialty: "Physician",
     drNikunjDesc: "Consulting Physician",
     drNikunjTiming: "6:00 pm to 8:00 pm",
+
+    hospitalRMO: "Hospital 24*7 RMO",
+    hospitalRMOSpecialty: "Resident Medical Officer",
+    hospitalRMOTiming: "Round the Clock",
   },
   hi: {
     // Navigation
@@ -172,7 +174,6 @@ export const translations = {
     yearsTrust: "विश्वास के वर्ष",
     expertCare: "विशेषज्ञ देखभाल",
     availability: "24/7 उपलब्धता",
-    rating: "रेटिंग",
     years: "वर्ष",
     doctorsLabel: "डॉक्टर",
     reviews: "समीक्षाएं",
@@ -193,7 +194,7 @@ export const translations = {
     yearsExperience: "वर्षों का अनुभव",
     patientsServed: "सेवित रोगी",
     expertDoctorsLabel: "विशेषज्ञ डॉक्टर",
-    starRating: "स्टार रेटिंग",
+    star : "स्टार रेटिंग",
 
     // Services
     servicesTitle: "व्यापक स्वास्थ्य सेवाएं",
@@ -306,6 +307,10 @@ export const translations = {
     drNikunjSpecialty: "फिजिशियन",
     drNikunjDesc: "कंसल्टिंग फिजिशियन",
     drNikunjTiming: "शाम 6:00 से 8:00 बजे तक",
+
+    hospitalRMO: "अस्पताल 24*7 आरएमओ",
+    hospitalRMOSpecialty: "रेसिडेंट मेडिकल ऑफिसर",
+    hospitalRMOTiming: "24 घंटे उपलब्ध",
   },
   mr: {
     // Navigation
@@ -326,7 +331,6 @@ export const translations = {
     yearsTrust: "विश्वासाची वर्षे",
     expertCare: "तज्ज्ञ काळजी",
     availability: "24/7 उपलब्धता",
-    rating: "रेटिंग",
     years: "वर्षे",
     doctorsLabel: "डॉक्टर",
     reviews: "पुनरावलोकने",
@@ -347,7 +351,7 @@ export const translations = {
     yearsExperience: "वर्षांचा अनुभव",
     patientsServed: "सेवित रुग्ण",
     expertDoctorsLabel: "तज्ज्ञ डॉक्टर",
-    starRating: "स्टार रेटिंग",
+    star : "स्टार रेटिंग",
 
     // Services
     servicesTitle: "व्यापक आरोग्य सेवा",
@@ -460,6 +464,10 @@ export const translations = {
     drNikunjSpecialty: "फिजिशियन",
     drNikunjDesc: "कंसल्टिंग फिजिशियन",
     drNikunjTiming: "संध्याकाळी 6:00 ते 8:00 वाजेपर्यंत",
+
+    hospitalRMO: "रुग्णालय 24*7 आरएमओ",
+    hospitalRMOSpecialty: "रेसिडेंट मेडिकल ऑफिसर",
+    hospitalRMOTiming: "24 तास उपलब्ध",
   }
 };
 

@@ -98,6 +98,7 @@ export default function Navbar() {
             {/* Language Dropdown - Desktop Only */}
             <div className="hidden lg:block relative language-dropdown">
               <button
+                id="language-selector"
                 onClick={() => setLanguageDropdown(!languageDropdown)}
                 className="p-2 rounded-full hover:bg-orange-50 transition-colors duration-300 flex items-center gap-1"
                 title="Change Language"
