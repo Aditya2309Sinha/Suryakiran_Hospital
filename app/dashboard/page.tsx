@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { 
   Send, LogOut, MessageSquare, Image as ImageIcon, Users, Globe, 
   FileText, Loader2, CheckCircle, XCircle, ChevronDown,
-  Menu, X, Zap, Home, FileSpreadsheet
+  Menu, X, Zap, Home
 } from 'lucide-react';
 
 interface Template {
@@ -38,10 +38,6 @@ export default function DashboardPage() {
   const [sending, setSending] = useState(false);
   const [result, setResult] = useState<{ success: boolean; message: string } | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [logsModalOpen, setLogsModalOpen] = useState(false);
-  const [logsUsername, setLogsUsername] = useState('');
-  const [logsPassword, setLogsPassword] = useState('');
-  const [logsError, setLogsError] = useState('');
 
   const [formData, setFormData] = useState({
     campaignName: '',
@@ -133,15 +129,6 @@ export default function DashboardPage() {
     }
   };
 
-  const handleLogsLogin = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (logsUsername === 'aditya' && logsPassword === 'aditya2309') {
-      router.push('/admin/logs');
-    } else {
-      setLogsError('Invalid credentials');
-    }
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-red-50">
       <nav className="bg-white/80 backdrop-blur-md border-b border-orange-100 sticky top-0 z-40">
@@ -157,13 +144,6 @@ export default function DashboardPage() {
 
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2">
-                <button
-                  onClick={() => setLogsModalOpen(true)}
-                  className="flex items-center gap-2 px-4 py-2 text-trust-brown-600 hover:text-orange-600 hover:bg-orange-50 rounded-xl transition-colors"
-                >
-                  <FileSpreadsheet className="w-4 h-4" />
-                  <span className="hidden sm:inline">Logs</span>
-                </button>
                 <button
                   onClick={handleLogoutToHome}
                   className="flex items-center gap-2 px-4 py-2 text-trust-brown-600 hover:text-orange-600 hover:bg-orange-50 rounded-xl transition-colors"
@@ -413,53 +393,6 @@ export default function DashboardPage() {
           </div>
         </div>
       </div>
-
-      {/* Logs Modal */}
-      {logsModalOpen && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-2xl p-6 w-full max-w-sm mx-4">
-            <h3 className="font-montserrat text-xl font-bold text-trust-maroon mb-4">Admin Logs Access</h3>
-            <form onSubmit={handleLogsLogin} className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-trust-brown mb-1">Username</label>
-                <input
-                  type="text"
-                  value={logsUsername}
-                  onChange={(e) => setLogsUsername(e.target.value)}
-                  className="w-full px-4 py-2 rounded-xl border border-orange-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none"
-                  placeholder="Enter username"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-trust-brown mb-1">Password</label>
-                <input
-                  type="password"
-                  value={logsPassword}
-                  onChange={(e) => setLogsPassword(e.target.value)}
-                  className="w-full px-4 py-2 rounded-xl border border-orange-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none"
-                  placeholder="Enter password"
-                />
-              </div>
-              {logsError && <p className="text-red-500 text-sm">{logsError}</p>}
-              <div className="flex gap-2">
-                <button
-                  type="button"
-                  onClick={() => { setLogsModalOpen(false); setLogsError(''); }}
-                  className="flex-1 px-4 py-2 rounded-xl border border-orange-200 text-trust-brown hover:bg-orange-50 transition-colors"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  className="flex-1 px-4 py-2 rounded-xl bg-gradient-to-r from-orange-500 to-red-600 text-white font-medium hover:from-orange-400 hover:to-red-500 transition-colors"
-                >
-                  Login
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

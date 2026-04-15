@@ -67,14 +67,12 @@ JWT_SECRET=your-secret-key
 hospital/
 ├── app/
 │   ├── api/                  # API routes
-│   │   ├── admin-logs/       # Admin activity logging
 │   │   ├── book-appointment/ # Appointment booking
 │   │   ├── login/            # Authentication
 │   │   ├── logout/           # Logout
 │   │   ├── templates/        # Email templates
 │   │   ├── trigger-workflow/ # n8n trigger
 │   │   └── verify/           # Token verification
-│   ├── admin/logs/           # Admin logs page
 │   ├── appointment/          # Booking page
 │   ├── contact/              # Contact page
 │   ├── dashboard/            # Admin dashboard (protected)
