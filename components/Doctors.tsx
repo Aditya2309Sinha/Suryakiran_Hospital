@@ -13,7 +13,7 @@ const doctors = [
     degree: "M.S. (Gen. Surgery)",
     descriptionKey: "drMahimaDesc",
     timingKey: "drMahimaTiming",
-    image: "/images/mmahima.jpg",
+    image: "/images/mahima.jpg",
   },
   {
     nameKey: "drAbhishiek",
@@ -38,7 +38,7 @@ const doctors = [
     degree: "M.B.B.S., DGO",
     descriptionKey: "drSangitaDesc",
     timingKey: "drSangitaTiming",
-    image: "/images/sangitaa.jpg",
+    image: "/images/sangitaa.png",
   },
   {
     nameKey: "drSushila",

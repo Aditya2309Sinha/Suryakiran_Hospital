@@ -11,7 +11,8 @@ export const translations = {
     bookAppointment: "Book Appointment",
 
     // Hero Section
-    heroNewLine: "We are Together for Your Healthcare Needs",
+    heroNewLine1: "We are Together for",
+    heroNewLine2: "Your Healthcare Needs",
     heroTitle: "Your Trusted Healthcare Partner",
     heroSubtitle: "Providing compassionate, comprehensive healthcare for over 13 years. Experience world-class medical services with a personal touch.",
     yearsTrust: "Years of Trust",
@@ -168,7 +169,8 @@ export const translations = {
     bookAppointment: "अपॉइंटमेंट बुक करें",
 
     // Hero Section
-    heroNewLine: "आपकी स्वास्थ्य सेवा की जरूरतों के लिए हम एक साथ हैं",
+    heroNewLine1: "आपकी स्वास्थ्य सेवा की जरूरतों के लिए",
+    heroNewLine2: "हम एक साथ हैं",
     heroTitle: "आपका विश्वसनीय स्वास्थ्य साथी",
     heroSubtitle: "13 वर्षों से करुणा के साथ व्यापक स्वास्थ्य सेवा प्रदान करना। व्यक्तिगत स्पर्श के साथ विश्व स्तरीय चिकित्सा सेवाओं का अनुभव करें।",
     yearsTrust: "विश्वास के वर्ष",
@@ -325,7 +327,8 @@ export const translations = {
     bookAppointment: "अपॉइंटमेंट बुक करा",
 
     // Hero Section
-    heroNewLine: "आपल्या आरोग्य सेवा गरजांसाठी आम्ही एकत्र आहोत",
+    heroNewLine1: "आपल्या आरोग्य सेवा गरजांसाठी",
+    heroNewLine2: "आम्ही एकत्र आहोत",
     heroTitle: "आपका विश्वासनीय आरोग्य साथी",
     heroSubtitle: "13 वर्षांपासून सहानुभूतीने व्यापक आरोग्य सेवा देत आहोत. व्यक्तिगत स्पर्शासह जागतिक दर्जाच्या वैद्यकीय सेवांचा अनुभव घ्या.",
     yearsTrust: "विश्वासाची वर्षे",
