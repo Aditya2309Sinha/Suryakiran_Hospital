@@ -64,7 +64,7 @@ const allDoctors: Doctor[] = [
     degree: "D.C.H., D.N.B.",
     descriptionKey: "drHemalDesc",
     timingKey: "drHemalTiming",
-    image: null,
+    image: "/images/hemal.png",
   },
   {
     nameKey: "drNikunj",
