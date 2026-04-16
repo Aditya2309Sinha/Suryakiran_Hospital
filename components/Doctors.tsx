@@ -96,7 +96,7 @@ const allDoctors: Doctor[] = [
     degree: "M.B.B.S., M.S., M.Ch. (Urology)",
     descriptionKey: "drRushabhDesc",
     timingKey: "drRushabhTiming",
-    image: "/images/rushabh.jpg",
+    image: "/images/Rushabh.jpg",
   },
   {
     nameKey: "drSuvarna",
