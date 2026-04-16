@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { MapPin, Phone, Mail, Clock, Heart } from "lucide-react";
+import { MapPin, Phone, Clock, Heart } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 const quickLinks = [
@@ -11,14 +11,6 @@ const quickLinks = [
   { nameKey: "services", href: "/services" },
   { nameKey: "doctors", href: "/doctors" },
   { nameKey: "contact", href: "/contact" },
-];
-
-const services = [
-  { nameKey: "General" },
-  { nameKey: "Pediatrics" },
-  { nameKey: "Surgical" },
-  { nameKey: "ICU Service" },
-  { nameKey: "Emergency Services" },
 ];
 
 export default function Footer() {
@@ -30,11 +22,11 @@ export default function Footer() {
         <div className="absolute inset-0 bg-gradient-to-r from-orange-900/20 to-heal-900/20" />
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {/* Hospital Info */}
-            <div className="space-y-6">
-              <div className="flex items-center gap-3">
-                <div className="relative w-40 h-16">
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <div className="relative w-36 h-16 flex-shrink-0">
                   <Image
                     src="/images/BHPL.jpeg"
                     alt="Billore Hospital Pvt. Ltd."
@@ -42,50 +34,37 @@ export default function Footer() {
                     className="object-contain"
                   />
                 </div>
+                <div className="flex items-center h-16">
+                  <p className="font-montserrat font-bold text-lg text-white leading-tight">
+                    {t('socialInitiative')}
+                  </p>
+                </div>
               </div>
-              <p className="font-montserrat font-bold text-xl text-white">
-                {t('socialInitiative')}
-              </p>
               <p className="text-white/70 leading-relaxed">
                 {t('footerAboutDesc')}
               </p>
             </div>
 
-            {/* Quick Links */}
-            <div>
-              <h3 className="font-montserrat font-semibold text-lg text-white mb-6">
-                {t('quickLinks')}
-              </h3>
-              <ul className="space-y-3">
-                {quickLinks.map((link) => (
-                  <li key={link.nameKey}>
-                    <Link 
-                      href={link.href}
-                      className="hover:text-heal-400 transition-colors duration-300 flex items-center gap-2"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-heal-500" />
-                      {t(link.nameKey as any)}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Services */}
-            <div>
-              <h3 className="font-montserrat font-semibold text-lg text-white mb-6">
-                {t('footerServices')}
-              </h3>
-              <ul className="space-y-3">
-                {services.map((service) => (
-                  <li key={service.nameKey}>
-                    <span className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
-                      {t(service.nameKey as any)}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+            {/* Quick Links - Centered */}
+            <div className="lg:flex lg:justify-center">
+              <div>
+                <h3 className="font-montserrat font-semibold text-lg text-white mb-6">
+                  {t('quickLinks')}
+                </h3>
+                <ul className="space-y-3">
+                  {quickLinks.map((link) => (
+                    <li key={link.nameKey}>
+                      <Link 
+                        href={link.href}
+                        className="hover:text-heal-400 transition-colors duration-300 flex items-center gap-2"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-heal-500" />
+                        {t(link.nameKey as any)}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
             {/* Contact Info */}
@@ -106,17 +85,6 @@ export default function Footer() {
                     Akruli Road, Kandivali East,<br />
                     Mumbai-400101, Maharashtra
                   </a>
-                </div>
-                <div className="mt-4 rounded-xl overflow-hidden border border-white/10">
-                  <iframe 
-                    src="https://www.google.com/maps/embed?pb=!3m2!1sen!2sin!4v1775023825808!5m2!1sen!2sin!6m8!1m7!1s96VnnoQ4atENUJv_sTPp3w!2m2!1d19.19499125650766!2d72.87238743249469!3f86.02687265104859!4f10.877778020737225!5f1.1924812503605782"
-                    width="100%"
-                    height="180"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  />
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone className="w-5 h-5 text-heal-500" />

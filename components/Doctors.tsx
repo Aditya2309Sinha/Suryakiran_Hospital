@@ -1,12 +1,22 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Star, Award, Clock, Heart } from "lucide-react";
+import { Award } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 
-const doctors = [
+interface Doctor {
+  nameKey: string;
+  specialtyKey: string;
+  descriptionKey: string;
+  timingKey: string;
+  degree: string;
+  noteKey?: string;
+  image: string | null;
+}
+
+const allDoctors: Doctor[] = [
   {
     nameKey: "drMahima",
     specialtyKey: "drMahimaSpecialty",
@@ -64,10 +74,48 @@ const doctors = [
     timingKey: "drNikunjTiming",
     image: null,
   },
+  {
+    nameKey: "drArchana",
+    specialtyKey: "drArchanaSpecialty",
+    degree: "MD, DGO",
+    descriptionKey: "drArchanaDesc",
+    timingKey: "drArchanaTiming",
+    image: "/images/archana.jpg",
+  },
+  {
+    nameKey: "drShruti",
+    specialtyKey: "drShrutiSpecialty",
+    degree: "MD, MA (Counseling Psychology)",
+    descriptionKey: "drShrutiDesc",
+    timingKey: "drShrutiTiming",
+    image: "/images/shruti.jpg",
+  },
+  {
+    nameKey: "drRushabh",
+    specialtyKey: "drRushabhSpecialty",
+    degree: "M.B.B.S., M.S., M.Ch. (Urology)",
+    descriptionKey: "drRushabhDesc",
+    timingKey: "drRushabhTiming",
+    image: "/images/rushabh.jpg",
+  },
+  {
+    nameKey: "drSuvarna",
+    specialtyKey: "drSuvarnaSpecialty",
+    degree: "M.B.B.S., DCH, MD",
+    descriptionKey: "drSuvarnaDesc",
+    timingKey: "drSuvarnaTiming",
+    image: "/images/suvarnaa.png",
+  },
 ];
 
-export default function Doctors() {
+interface DoctorsProps {
+  showAll?: boolean;
+}
+
+export default function Doctors({ showAll = false }: DoctorsProps) {
   const { t } = useLanguage();
+  const doctors = showAll ? allDoctors : allDoctors.slice(0, 10);
+
   return (
     <section id="doctors" className="section-padding bg-orange-50/30">
       <div className="container-custom">
@@ -102,17 +150,17 @@ export default function Doctors() {
               className="glass-card-hover group"
             >
               {/* Image with warm gradient */}
-              <div className={`relative aspect-square rounded-t-2xl bg-gradient-to-br from-orange-100 to-red-100 overflow-hidden ${doctor.nameKey === 'drAbhishiek' ? 'pt-3' : ''}`}>
+              <div className={`relative aspect-square rounded-t-2xl bg-gradient-to-br from-orange-100 to-red-100 overflow-hidden ${['drMahima', 'drAbhishiek', 'drNilesh', 'drSangita', 'drSushila', 'drHemal', 'drNikunj', 'drArchana', 'drShruti', 'drRushabh', 'drSuvarna'].includes(doctor.nameKey) ? 'pt-2' : ''}`}>
                 {doctor.image ? (
                   <Image
                     src={doctor.image}
                     alt={t(doctor.nameKey as any)}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 20vw"
-                    className={`object-cover ${doctor.nameKey === 'drAbhishiek' ? 'object-top' : ''}`}
+                    className="object-cover object-top"
                   />
                 ) : (
-                  <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="absolute inset-0 flex items-center justify-center pt-3">
                     <div className="w-24 h-24 rounded-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center shadow-lg">
                       <span className="text-4xl font-bold text-white">
                         {t(doctor.nameKey as any).split(" ").pop()?.charAt(0)}
@@ -127,30 +175,40 @@ export default function Doctors() {
                 <h3 className="font-montserrat font-semibold text-lg text-trust-maroon mb-1">
                   {t(doctor.nameKey as any)}
                 </h3>
-                <p className="text-orange-600 font-medium text-sm mb-3">
+                <p className="text-orange-600 font-medium text-sm mb-1">
                   {t(doctor.specialtyKey as any)}
                 </p>
-                <p className="text-trust-brown/70 text-sm leading-relaxed">
+                <p className="text-trust-brown/70 text-xs mb-2">
+                  {doctor.degree}
+                </p>
+                <p className="text-trust-brown/60 text-xs leading-relaxed">
                   {t(doctor.descriptionKey as any)}
                 </p>
+                {doctor.noteKey && (
+                  <p className="text-red-500 text-xs mt-1 font-medium">
+                    {t(doctor.noteKey as any)}
+                  </p>
+                )}
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-12"
-        >
-          <Link href="/doctors" className="btn-secondary inline-flex items-center gap-2">
-            <Award className="w-5 h-5" />
-            {t('viewAllDoctors')}
-          </Link>
-        </motion.div>
+        {/* CTA - Only show on home page */}
+        {!showAll && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-center mt-12"
+          >
+            <Link href="/doctors" className="btn-secondary inline-flex items-center gap-2">
+              <Award className="w-5 h-5" />
+              {t('viewAllDoctors')}
+            </Link>
+          </motion.div>
+        )}
       </div>
     </section>
   );

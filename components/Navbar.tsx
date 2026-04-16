@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, Phone, MapPin, Heart, Camera, Globe, ChevronDown } from "lucide-react";
+import { Menu, X, Phone, MapPin, Globe, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import { Language } from "@/lib/translations";
@@ -13,6 +13,7 @@ const navLinks = [
   { name: "About", href: "/#about" },
   { name: "Services", href: "/#services" },
   { name: "Doctors", href: "/#doctors" },
+  { name: "Gallery", href: "/gallery" },
   { name: "Contact", href: "/#contact" },
 ];
 
@@ -61,6 +62,7 @@ export default function Navbar() {
       'About': 'about',
       'Services': 'services',
       'Doctors': 'doctors',
+      'Gallery': 'gallery',
       'Contact': 'contact'
     };
     return t(keyMap[key] as any);
@@ -129,14 +131,6 @@ export default function Navbar() {
                 </motion.div>
               )}
             </div>
-
-            <Link
-              href="/gallery"
-              className="p-2 rounded-full hover:bg-orange-50 transition-colors duration-300"
-              title="Gallery"
-            >
-              <Camera className="w-5 h-5 text-trust-brown" />
-            </Link>
 
             <Link
               href="/login"
@@ -222,14 +216,6 @@ export default function Navbar() {
                   {getNavName(link.name)}
                 </Link>
               ))}
-              <Link
-                href="/gallery"
-                onClick={() => setIsOpen(false)}
-                className="block px-4 py-3 rounded-xl text-trust-brown font-medium hover:bg-orange-50 hover:text-orange-600 transition-all duration-300 flex items-center gap-2"
-              >
-                <Camera className="w-5 h-5" />
-                {t('gallery')}
-              </Link>
               <Link
                 href="/login"
                 onClick={() => setIsOpen(false)}

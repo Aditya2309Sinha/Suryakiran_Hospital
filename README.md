@@ -14,8 +14,8 @@ Suryakiran Multispecialty Hospital is a NABH-accredited, trusted private, multis
 - **Admin Dashboard**: Protected login for staff to manage appointments
 - **Responsive Design**: Fully responsive across all devices
 - **Smooth Animations**: Framer Motion for fluid transitions
-- **Services Section**: 16 comprehensive healthcare services
-- **Doctors Profile**: 7 specialists with OPD timing
+- **Services Section**: 13 comprehensive healthcare services with descriptions
+- **Doctors Profile**: 11 specialists with OPD timing
 - **Gallery**: Hospital facility images
 - **24/7 Emergency Services**
 
@@ -148,7 +148,11 @@ hospital/
 5. **Dr. Sushila Bawa** - Obstetrician & Gynaecologist - 4:00 PM - 5:00 PM
 6. **Dr. Hemal Mistry** - Child Specialist - 6:00 PM - 7:00 PM
 7. **Dr. Nikunj Bavishi** - Physician - 6:00 PM - 8:00 PM
-8. **Hospital 24*7 RMO** - Resident Medical Officer - Round the Clock
+8. **Dr. Archana S Waghela** - Obstetrician & Gynecologist (Laparoscopy & Infertility Specialist) - On-Call
+9. **Dr. Shruti Thakkar** - Homeopathic Psychiatrist - On-Call
+10. **Dr. Rushabh V. Daga** - Consultant Urologist - On-Call
+11. **Dr. Suvarna Achrekar** - Medical Oncology - On-Call
+12. **Hospital 24*7 RMO** - Resident Medical Officer - Round the Clock
 
 ## API Integration
 
