@@ -12,19 +12,19 @@ import {
 export default function Services() {
   const { t } = useLanguage();
   
-  const services: { icon: React.ComponentType<{ className?: string }>; titleKey: string; color: string }[] = [
-    { icon: AlertCircle, titleKey: "ICU/ICCU", color: "from-red-500 to-orange-500" },
-    { icon: Shield, titleKey: "Surgical", color: "from-orange-500 to-red-500" },
-    { icon: Stethoscope, titleKey: "General Medicine", color: "from-orange-400 to-amber-500" },
-    { icon: Baby, titleKey: "Gynaecology/Maternity", color: "from-pink-500 to-rose-500" },
-    { icon: AlertCircle, titleKey: "Accident & Trauma", color: "from-red-400 to-orange-400" },
-    { icon: Activity, titleKey: "Urology", color: "from-teal-500 to-cyan-500" },
-    { icon: Scan, titleKey: "Endoscopy / Laparoscopy", color: "from-purple-500 to-indigo-500" },
-    { icon: HeartPulse, titleKey: "Cancer", color: "from-rose-500 to-red-500" },
-    { icon: Baby, titleKey: "Pediatrics", color: "from-pink-400 to-rose-400" },
-    { icon: Eye, titleKey: "Skin", color: "from-amber-400 to-yellow-500" },
-    { icon: Mic, titleKey: "ENT", color: "from-cyan-500 to-teal-500" },
-    { icon: Wind, titleKey: "Chest TB", color: "from-slate-500 to-gray-500" },
+  const services: { icon: React.ComponentType<{ className?: string }>; titleKey: string; descKey: string; color: string }[] = [
+    { icon: AlertCircle, titleKey: "ICU/ICCU", descKey: "ICU/ICCU-desc", color: "from-red-500 to-orange-500" },
+    { icon: Shield, titleKey: "Surgical", descKey: "Surgical-desc", color: "from-orange-500 to-red-500" },
+    { icon: Stethoscope, titleKey: "General Medicine", descKey: "General Medicine-desc", color: "from-orange-400 to-amber-500" },
+    { icon: Baby, titleKey: "Gynaecology/Maternity", descKey: "Gynaecology/Maternity-desc", color: "from-pink-500 to-rose-500" },
+    { icon: AlertCircle, titleKey: "Accident & Trauma", descKey: "Accident & Trauma-desc", color: "from-red-400 to-orange-400" },
+    { icon: Activity, titleKey: "Urology", descKey: "Urology-desc", color: "from-teal-500 to-cyan-500" },
+    { icon: Scan, titleKey: "Endoscopy / Laparoscopy", descKey: "Endoscopy / Laparoscopy-desc", color: "from-purple-500 to-indigo-500" },
+    { icon: HeartPulse, titleKey: "Cancer", descKey: "Cancer-desc", color: "from-rose-500 to-red-500" },
+    { icon: Baby, titleKey: "Pediatrics", descKey: "Pediatrics-desc", color: "from-pink-400 to-rose-400" },
+    { icon: Eye, titleKey: "Skin", descKey: "Skin-desc", color: "from-amber-400 to-yellow-500" },
+    { icon: Mic, titleKey: "ENT", descKey: "ENT-desc", color: "from-cyan-500 to-teal-500" },
+    { icon: Wind, titleKey: "Chest TB", descKey: "Chest TB-desc", color: "from-slate-500 to-gray-500" },
   ];
   return (
     <section id="services" className="section-padding bg-orange-50/50">
@@ -62,9 +62,12 @@ export default function Services() {
               <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-4 shadow-lg`}>
                 <service.icon className="w-7 h-7 text-white" />
               </div>
-              <h3 className="font-montserrat font-semibold text-xl text-trust-maroon mb-3">
+              <h3 className="font-montserrat font-semibold text-xl text-trust-maroon mb-2">
                 {t(service.titleKey)}
               </h3>
+              <p className="text-sm text-trust-brown/70 leading-relaxed">
+                {t(service.descKey)}
+              </p>
             </motion.div>
           ))}
         </div>
