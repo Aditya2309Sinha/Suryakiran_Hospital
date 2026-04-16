@@ -88,7 +88,7 @@ const allDoctors: Doctor[] = [
     degree: "MD, MA (Counseling Psychology)",
     descriptionKey: "drShrutiDesc",
     timingKey: "drShrutiTiming",
-    image: "/images/shruti.jpg",
+    image: "/images/shruti.png",
   },
   {
     nameKey: "drRushabh",
