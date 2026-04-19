@@ -72,7 +72,7 @@ const allDoctors: Doctor[] = [
     degree: "M.B.B.S., M.D. (Med)",
     descriptionKey: "drNikunjDesc",
     timingKey: "drNikunjTiming",
-    image: null,
+    image: "/images/nikunj.jpg",
   },
   {
     nameKey: "drArchana",
