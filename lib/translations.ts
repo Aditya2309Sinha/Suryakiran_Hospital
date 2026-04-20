@@ -47,6 +47,22 @@ export const translations = {
     viewAllDoctors: "View All Doctors",
     profile: "Profile",
 
+    // Testimonials
+    testimonialsTitle: "What Our Patients Say",
+    testimonialsSubtitle: "Hear from our patients about their experience at Suryakiran Hospital.",
+    patient1Name: "Rajesh Sharma",
+    patient1Review: "Excellent hospital with great doctors and staff. The care I received for my child's treatment was outstanding. Highly recommend!",
+    patient2Name: "Priya Mehta",
+    patient2Review: "Very professional and compassionate team. They took great care of my mother during her surgery. Thank you Suryakiran!",
+    patient3Name: "Amit Patil",
+    patient3Review: "Best multispecialty hospital in Kandivali area. Clean facilities and expert doctors. Very satisfied with the service.",
+    patient4Name: "Sunita Devi",
+    patient4Review: "The maternity team was amazing! They supported me throughout my pregnancy and delivery. Forever grateful!",
+    patient5Name: "Vikram Singh",
+    patient5Review: "Had a great experience with the orthopedics department. The doctor explained everything clearly and the treatment was effective. Thank you!",
+    patient6Name: "Anjali Nair",
+    patient6Review: "The emergency care at Suryakiran is outstanding. Quick response and excellent treatment during a critical situation. Truly life-saving!",
+
     // Footer
     quickLinks: "Quick Links",
     footerServices: "Our Services",
@@ -234,6 +250,22 @@ export const translations = {
     viewAllDoctors: "सभी डॉक्टर देखें",
     profile: "प्रोफाइल",
 
+    // Testimonials
+    testimonialsTitle: "हमारे रोगी क्या कहते हैं",
+    testimonialsSubtitle: "सूर्यकिरण अस्पताल में अपने अनुभव के बारे में हमारे रोगियों से सुनें।",
+    patient1Name: "राजेश शर्मा",
+    patient1Review: "बेहतरीन अस्पताल बड़े डॉक्टरों और स्टाफ के साथ। मेरे बच्चे के इलाज के लिए मिली देखभाल उत्कृष्ट थी। अत्यंत अनुशंसा!",
+    patient2Name: "प्रिया मेहता",
+    patient2Review: "बहुत पेशेवर और दयालु टीम। उन्होंने मेरी माँ के ऑपरेशन के दौरान बहुत अच्छी देखभाल की। धन्यवाद सूर्यकिरण!",
+    patient3Name: "अमित पाटील",
+    patient3Review: "कांदिवली क्षेत्र में सबसे अच्छा मल्टीस्पेसियल अस्पताल। साफ सुविधाएं और विशेषज्ञ डॉक्टर। सेवा से बहुत संतुष्ट।",
+    patient4Name: "सुनिता देवी",
+    patient4Review: "मातृत्व टीम अद्भुत थी! उन्होंने मेरे गर्भावस्था और प्रसव के दौरान मुझा का भरपूर समर्थन किया। हमेशा आभारी!",
+    patient5Name: "विक्रम सिंह",
+    patient5Review: "ऑर्थोपेडिक्स विभाग में बेहतरीन अनुभव। डॉक्टर ने सब कुछ स्पष्ट रूप से समझाया और उपचार प्रभावी था। धन्यवाद!",
+    patient6Name: "अंजलि नायर",
+    patient6Review: "सूर्यकिरण में आपातकालीन देखभाल उत्कृष्ट है। एक महत्वपूर्ण स्थिति में तेज प्रतिक्रिया और उत्कृष्ट उपचार। सच में जान बचाने वाला!",
+
     // Footer
     quickLinks: "त्वरित लिंक",
     footerServices: "हमारी सेवाएं",
@@ -420,6 +452,22 @@ export const translations = {
     doctorsSubtitle: "आमची अत्यंत प्रशंसित आणि अनुभवी वैद्यकीय व्यावसायिकांची टीम तुम्हाला सर्वोत्तम काळजी देण्यास समर्पित आहे.",
     viewAllDoctors: "सर्व डॉक्टर पहा",
     profile: "प्रोफाइल",
+
+    // Testimonials
+    testimonialsTitle: "आमचे रुग्ण काय म्हणतात",
+    testimonialsSubtitle: "सूर्यकिरण हॉस्पिटलमधील त्यांच्या अनुभवाबद्दल आमच्या रुग्णांकडून ऐका.",
+    patient1Name: "राजेश शर्मा",
+    patient1Review: "उत्कृष्ट हॉस्पिटल उत्कृष्ट डॉक्टर आणि स्टाफसह. माझ्या मुलाच्या उपचारांसाठी मिळालेली काळजी उत्कृष्ट होती. अत्यंत शिफारस!",
+    patient2Name: "प्रिया मेहता",
+    patient2Review: "खूप पेशेवर आणि करुणाशील टीम. त्यांनी माझ्या आईच्या शस्त्रक्रियेदरम्यान चांगली काळजी घेतली. धन्यवाद सूर्यकिरण!",
+    patient3Name: "अमित पाटील",
+    patient3Review: "कांदिवली भागातील सर्वोत्तम मल्टीस्पेशालिटी हॉस्पिटल. स्वच्छ सुविधा आणि तज्ज्ञ डॉक्टर. सेवेपासून खूप समाधानी.",
+    patient4Name: "सुनिता देवी",
+    patient4Review: "मातृत्व टीम अप्रतिम होती! त्यांनी माझ्या गर्भधारणा आणि प्रसवादरम्यान मला पूर्ण पाठिंबा दिला. नेहमी आभारी!",
+    patient5Name: "विक्रम सिंह",
+    patient5Review: "ऑर्थोपेडिक्स विभागात चांगला अनुभव. डॉक्टरने सर्व काही स्पष्ट सांगितले आणि उपचार प्रभावी होते. धन्यवाद!",
+    patient6Name: "अंजली नायर",
+    patient6Review: "सूर्यकिरण येथील आपत्कालीन केअर उत्कृष्ट आहे. गंभीर परिस्थितीत जलद प्रतिसाद आणि उत्कृष्ट उपचार. खरेच जीव वाचवणारे!",
 
     // Footer
     quickLinks: "त्वरित लिंक",

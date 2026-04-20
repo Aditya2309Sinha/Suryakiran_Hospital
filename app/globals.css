@@ -94,6 +94,19 @@ h1, h2, h3, h4, h5, h6 {
     text-wrap: balance;
   }
   
+  .animate-scroll {
+    animation: scroll 40s linear infinite;
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-320px * 6 - 1.5rem * 6));
+    }
+  }
+  
   .animate-delay-100 {
     animation-delay: 100ms;
   }

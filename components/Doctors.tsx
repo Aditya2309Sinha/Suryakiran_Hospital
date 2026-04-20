@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award } from "lucide-react";
+import { Award, Quote, Star } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
@@ -207,6 +207,62 @@ export default function Doctors({ showAll = false }: DoctorsProps) {
               <Award className="w-5 h-5" />
               {t('viewAllDoctors')}
             </Link>
+          </motion.div>
+        )}
+
+        {/* Testimonials Section */}
+        {!showAll && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="mt-20 overflow-hidden"
+          >
+            <div className="text-center mb-12">
+              <h2 className="font-montserrat text-3xl sm:text-4xl font-bold text-trust-maroon mb-4">
+                {t('testimonialsTitle')}
+              </h2>
+              <p className="text-trust-brown/80 max-w-2xl mx-auto">
+                {t('testimonialsSubtitle')}
+              </p>
+            </div>
+            <div className="relative">
+              <div className="flex animate-scroll gap-6">
+                {[
+                  { nameKey: 'patient1Name', reviewKey: 'patient1Review' },
+                  { nameKey: 'patient2Name', reviewKey: 'patient2Review' },
+                  { nameKey: 'patient3Name', reviewKey: 'patient3Review' },
+                  { nameKey: 'patient4Name', reviewKey: 'patient4Review' },
+                  { nameKey: 'patient5Name', reviewKey: 'patient5Review' },
+                  { nameKey: 'patient6Name', reviewKey: 'patient6Review' },
+                  { nameKey: 'patient1Name', reviewKey: 'patient1Review' },
+                  { nameKey: 'patient2Name', reviewKey: 'patient2Review' },
+                  { nameKey: 'patient3Name', reviewKey: 'patient3Review' },
+                  { nameKey: 'patient4Name', reviewKey: 'patient4Review' },
+                  { nameKey: 'patient5Name', reviewKey: 'patient5Review' },
+                  { nameKey: 'patient6Name', reviewKey: 'patient6Review' },
+                ].map((testimonial, index) => (
+                  <div
+                    key={`${testimonial.nameKey}-${index}`}
+                    className="flex-shrink-0 w-80 bg-white rounded-2xl p-6 shadow-lg border border-orange-100"
+                  >
+                    <Quote className="w-8 h-8 text-orange-300 mb-3" />
+                    <p className="text-trust-brown/80 mb-4 italic">
+                      "{t(testimonial.reviewKey as any)}"
+                    </p>
+                    <div className="flex items-center gap-1">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                      ))}
+                    </div>
+                    <p className="font-montserrat font-semibold text-trust-maroon mt-2">
+                      {t(testimonial.nameKey as any)}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </motion.div>
         )}
       </div>
