@@ -86,7 +86,7 @@ export default function About() {
           >
             <div className="relative bg-gradient-to-br from-orange-50 to-red-50 rounded-3xl p-8 border border-orange-100">
               {/* NABH Image */}
-              <div className="aspect-square rounded-2xl overflow-hidden border border-orange-100 shadow-lg">
+              <div className="relative aspect-square rounded-2xl overflow-hidden border border-orange-100 shadow-lg">
                 <Image
                   src="/images/NABH.jpg"
                   alt="NABH Accreditation"
