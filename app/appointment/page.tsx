@@ -144,7 +144,7 @@ export default function AppointmentPage() {
               <div className="flex flex-wrap gap-4 mb-8 p-4 bg-orange-50 rounded-xl">
                 <div className="flex items-center gap-2 text-trust-brown">
                   <Phone className="w-4 h-4" />
-                  <span className="text-sm">+91 2249634780,+91 8879634780</span>
+                  <span className="text-sm">+91 2249634780,+91 8879634780,+91 8433534780</span>
                 </div>
                 <div className="flex items-center gap-2 text-trust-brown">
                   <Clock className="w-4 h-4" />
