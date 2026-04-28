@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
+import ChatWidget from "@/components/ChatWidget";
 
 export const metadata: Metadata = {
   title: "Suryakiran Multispecialty Hospital | Best Healthcare in Kandivali East",
@@ -24,6 +25,7 @@ export default function RootLayout({
       <body className="antialiased bg-silver-50 text-silver-800">
         <LanguageProvider>
           {children}
+          <ChatWidget />
         </LanguageProvider>
       </body>
     </html>
